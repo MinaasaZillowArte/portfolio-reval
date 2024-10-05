@@ -18,7 +18,7 @@ const About: React.FC = () => {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <img src="https://i.postimg.cc/0NLm4jPr/Picsart-24-08-09-09-56-14-849.png" alt="Profile" className={styles.profileImage} />
+          <Image src="https://i.postimg.cc/0NLm4jPr/Picsart-24-08-09-09-56-14-849.png" alt="Profile" className={styles.profileImage} />
         </motion.div>
         <motion.div
           className={styles.aboutContent}
