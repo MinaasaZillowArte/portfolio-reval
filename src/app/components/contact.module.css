@@ -1,0 +1,331 @@
+/* src/app/components/contact.module.css */
+
+.contactSection {
+    background-color: #111827;
+    color: #d1d5db;
+    padding: 6rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .heading {
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 4rem;
+    color: #ef4444;
+    text-align: center;
+    position: relative;
+  }
+  
+  .heading::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 5px;
+    background-color: #ef4444;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2.5px;
+  }
+  
+  .contactContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 4rem;
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .contactInfo {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .subHeading {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  
+  .description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+  
+  .infoItems {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .infoItem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .icon {
+    width: 24px;
+    height: 24px;
+    color: #ef4444;
+    flex-shrink: 0;
+  }
+  
+  .link {
+    color: #ffffff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .link:hover {
+    color: #dc2626;
+  }
+  
+  .text {
+    font-size: 1rem;
+  }
+  
+  .socialLinks {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+  
+  .socialLink {
+    color: #d1d5db;
+    transition: color 0.3s ease;
+  }
+  
+  .socialLink:hover {
+    color: #ef4444;
+  }
+  
+  .socialIcon {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+  }
+  
+  .contactForm {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .successMessage {
+    background-color: #10b981;
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.125rem;
+    animation: fadeIn 0.5s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  .form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .inputGroup {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .label {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+  }
+  
+  .input {
+    padding: 0.75rem 1rem;
+    border: 2px solid #374151;
+    border-radius: 0.5rem;
+    background-color: #1f2937;
+    color: #d1d5db;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+  }
+  
+  .input:focus {
+    border-color: #ef4444;
+    outline: none;
+  }
+  
+  .textarea {
+    padding: 0.75rem 1rem;
+    border: 2px solid #374151;
+    border-radius: 0.5rem;
+    background-color: #1f2937;
+    color: #d1d5db;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+  }
+  
+  .textarea:focus {
+    border-color: #ef4444;
+    outline: none;
+  }
+  
+  .submitButton {
+    background-color: #ef4444;
+    color: #ffffff;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 9999px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+  }
+  
+  .submitButton:hover {
+    background-color: #dc2626;
+  }
+  
+  @media (max-width: 1024px) {
+    .contactContainer {
+      flex-direction: row;
+      gap: 3rem;
+    }
+  
+    .subHeading {
+      font-size: 1.75rem;
+    }
+  
+    .description {
+      font-size: 1rem;
+    }
+  
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  
+    .socialIcon {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .contactContainer {
+      flex-direction: column;
+      gap: 2rem;
+    }
+  
+    .testimoniSection {
+      padding: 4rem 1rem;
+    }
+  
+    .heading {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
+  
+    .subHeading {
+      font-size: 1.5rem;
+    }
+  
+    .description {
+      font-size: 0.95rem;
+    }
+  
+    .infoItem {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .icon {
+      width: 22px;
+      height: 22px;
+    }
+  
+    .socialIcon {
+      width: 22px;
+      height: 22px;
+    }
+  
+    .form {
+      max-width: 100%;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .contactSection {
+      padding: 3rem 1rem;
+    }
+  
+    .heading {
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+  
+    .subHeading {
+      font-size: 1.25rem;
+    }
+  
+    .description {
+      font-size: 0.9rem;
+    }
+  
+    .infoItems {
+      gap: 1rem;
+    }
+  
+    .infoItem {
+      align-items: flex-start;
+    }
+  
+    .icon {
+      width: 20px;
+      height: 20px;
+    }
+  
+    .socialIcon {
+      width: 20px;
+      height: 20px;
+    }
+  
+    .form {
+      max-width: 100%;
+    }
+  
+    .input {
+      font-size: 0.95rem;
+      padding: 0.6rem 0.9rem;
+    }
+  
+    .textarea {
+      font-size: 0.95rem;
+      padding: 0.6rem 0.9rem;
+    }
+  
+    .submitButton {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.95rem;
+    }
+  
+    .successMessage {
+      font-size: 1rem;
+      padding: 0.8rem 1.5rem;
+    }
+  }  

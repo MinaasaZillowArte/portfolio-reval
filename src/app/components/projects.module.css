@@ -1,0 +1,459 @@
+/* src/app/components/projects.module.css */
+
+.projectsSection {
+  background-color: #1f2937;
+  color: #d1d5db;
+  padding: 6rem 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.heading {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 4rem;
+  color: #ef4444;
+  text-align: center;
+  position: relative;
+}
+
+.heading::after {
+  content: '';
+  position: absolute;
+  width: 100px;
+  height: 5px;
+  background-color: #ef4444;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2.5px;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.projectCard {
+  background-color: #374151;
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  box-shadow: 0 12px 24px rgba(239, 68, 68, 0.4);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: scale(1.05);
+  box-shadow: 0 16px 32px rgba(239, 68, 68, 0.5);
+}
+
+.cardContent {
+  flex-grow: 1;
+}
+
+.projectTitle {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  position: relative;
+}
+
+.projectTitle::after {
+  content: '';
+  position: absolute;
+  width: 60px;
+  height: 4px;
+  background-color: #ef4444;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.projectDescription {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.technologiesList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.technologyItem {
+  background-color: #4b5563;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: #d1d5db;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.technologyItem:hover {
+  background-color: #ef4444;
+  transform: translateY(-2px);
+}
+
+.viewButton {
+  background-color: #ef4444;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 9999px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  align-self: center;
+  margin-top: 1.5rem;
+}
+
+.viewButton:hover {
+  background-color: #dc2626;
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(239, 68, 68, 0.3);
+}
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(31, 41, 55, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+.modalContent {
+  background-color: #1f2937;
+  padding: 3rem 2rem;
+  border-radius: 1.5rem;
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  color: #d1d5db;
+  overflow-y: auto;
+  max-height: 90vh;
+  box-shadow: 0 15px 30px rgba(239, 68, 68, 0.5);
+}
+
+.closeButton {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #ef4444;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.closeButton:hover {
+  color: #dc2626;
+}
+
+.modalHeading {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+}
+
+.modalHeading::after {
+  content: '';
+  position: absolute;
+  width: 80px;
+  height: 5px;
+  background-color: #ef4444;
+  bottom: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 2.5px;
+}
+
+.modalDescription {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.modalSubHeading {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #ef4444;
+  text-align: left;
+}
+
+.modalTechnologiesList {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.modalTechnologyItem {
+  background-color: #4b5563;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  color: #d1d5db;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modalTechnologyItem:hover {
+  background-color: #ef4444;
+  transform: translateY(-2px);
+}
+
+.modalLinks {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.modalLink {
+  background-color: #ef4444;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.modalLink:hover {
+  background-color: #dc2626;
+  transform: scale(1.05);
+}
+
+@media (max-width: 1024px) {
+  .projectsSection {
+    padding: 5rem 1.5rem;
+  }
+
+  .heading {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .projectsGrid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem;
+  }
+
+  .projectCard {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .projectTitle {
+    font-size: 1.5rem;
+  }
+
+  .projectDescription {
+    font-size: 1.15rem;
+  }
+
+  .technologiesList {
+    gap: 0.5rem;
+  }
+
+  .technologyItem {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .viewButton {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .modalContent {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .modalHeading {
+    font-size: 2rem;
+  }
+
+  .modalDescription {
+    font-size: 1.15rem;
+  }
+
+  .modalSubHeading {
+    font-size: 1.25rem;
+  }
+
+  .modalTechnologyItem {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .modalLink {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .projectsSection {
+    padding: 4rem 1rem;
+  }
+
+  .heading {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .projectCard {
+    padding: 2rem 1rem;
+  }
+
+  .projectTitle {
+    font-size: 1.25rem;
+  }
+
+  .projectDescription {
+    font-size: 1rem;
+  }
+
+  .technologiesList {
+    gap: 0.5rem;
+  }
+
+  .technologyItem {
+    font-size: 0.75rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  .viewButton {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .modalContent {
+    padding: 2rem 1rem;
+  }
+
+  .modalHeading {
+    font-size: 1.75rem;
+  }
+
+  .modalDescription {
+    font-size: 1rem;
+  }
+
+  .modalSubHeading {
+    font-size: 1.1rem;
+  }
+
+  .modalTechnologyItem {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+
+  .modalLink {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projectsSection {
+    padding: 3rem 0.5rem;
+  }
+
+  .heading {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .projectsGrid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .projectCard {
+    padding: 1.5rem 1rem;
+  }
+
+  .projectTitle {
+    font-size: 1rem;
+  }
+
+  .projectDescription {
+    font-size: 0.95rem;
+  }
+
+  .technologiesList {
+    gap: 0.4rem;
+  }
+
+  .technologyItem {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .viewButton {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .modalContent {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .modalHeading {
+    font-size: 1.5rem;
+  }
+
+  .modalDescription {
+    font-size: 0.95rem;
+  }
+
+  .modalSubHeading {
+    font-size: 1rem;
+  }
+
+  .modalTechnologyItem {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.6rem;
+  }
+
+  .modalLink {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+}
