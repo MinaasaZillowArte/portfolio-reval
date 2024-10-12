@@ -5,15 +5,15 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import styles from './Navbar.module.css';
+import { motion, AnimatePresence } from 'framer-motion';
 
-const Navbar: React.FC = () => {
+const Navbar = () => {
   const [navbarBg, setNavbarBg] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState('');
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > window.innerHeight - 80) { // Adjust threshold as needed
+      if (window.scrollY > window.innerHeight - 80) {
         setNavbarBg(true);
       } else {
         setNavbarBg(false);
@@ -21,9 +21,52 @@ const Navbar: React.FC = () => {
     };
 
     window.addEventListener('scroll', handleScroll);
-
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
+
+  const menuVariants = {
+    open: {
+      opacity: 1,
+      height: 'auto',
+      transition: {
+        duration: 0.5,
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      }
+    },
+    closed: {
+      opacity: 0,
+      height: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
+  const linkVariants = {
+    open: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.3
+      }
+    },
+    closed: {
+      opacity: 0,
+      y: -20,
+      transition: {
+        duration: 0.3
+      }
+    }
+  };
 
   return (
     <nav
@@ -41,10 +84,10 @@ const Navbar: React.FC = () => {
             About
           </Link>
           <Link href="#projects" className={styles.navLink}>
-            Project
+            Projects
           </Link>
           <Link href="#testimoni" className={styles.navLink}>
-            Testimoni
+            Testimonials
           </Link>
           <Link href="#contact" className={styles.navLink}>
             Contact
@@ -54,55 +97,99 @@ const Navbar: React.FC = () => {
         {/* Mobile Menu Button */}
         <div className={styles.mobileMenuButton}>
           <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            onClick={toggleMobileMenu}
             className={styles.menuButton}
             aria-label="Toggle Menu"
           >
-            <svg
+            <motion.svg
               className={styles.menuIcon}
-              stroke="currentColor"
-              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
+              animate={isMobileMenuOpen ? "open" : "closed"}
+              initial="closed"
+              variants={{
+                closed: { rotate: 0 },
+                open: { rotate: 45 }
+              }}
+              transition={{ duration: 0.3 }}
             >
-              {isMobileMenuOpen ? (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              ) : (
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              )}
-            </svg>
+              <motion.path
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+                variants={{
+                  closed: { opacity: 1, d: "M4 6h16M4 12h16M4 18h16" },
+                  open: { opacity: 0, d: "M6 6l12 12" }
+                }}
+                transition={{ duration: 0.3 }}
+              />
+              <motion.path
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                d="M6 18L18 6"
+                variants={{
+                  closed: { opacity: 0, d: "M6 18L18 6" },
+                  open: { opacity: 1, d: "M6 18L18 6" }
+                }}
+                transition={{ duration: 0.3 }}
+              />
+            </motion.svg>
           </button>
         </div>
       </div>
 
       {/* Mobile Menu Links */}
-      <div
-        className={`${styles.mobileMenu} ${
-          isMobileMenuOpen ? styles.open : ''
-        }`}
-      >
-        <Link href="#about" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>
-          About
-        </Link>
-        <Link href="#projects" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>
-          Project
-        </Link>
-        <Link href="#testimoni" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>
-          Testimoni
-        </Link>
-        <Link href="#contact" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>
-          Contact
-        </Link>
-      </div>
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            className={styles.mobileMenu}
+            initial="closed"
+            animate="open"
+            exit="closed"
+            variants={menuVariants}
+          >
+            <motion.div
+              className={styles.mobileNavLinks}
+              variants={menuVariants}
+            >
+              <motion.a
+                href="#about"
+                className={styles.mobileNavLink}
+                onClick={closeMobileMenu}
+                variants={linkVariants}
+              >
+                About
+              </motion.a>
+              <motion.a
+                href="#projects"
+                className={styles.mobileNavLink}
+                onClick={closeMobileMenu}
+                variants={linkVariants}
+              >
+                Projects
+              </motion.a>
+              <motion.a
+                href="#testimoni"
+                className={styles.mobileNavLink}
+                onClick={closeMobileMenu}
+                variants={linkVariants}
+              >
+                Testimonials
+              </motion.a>
+              <motion.a
+                href="#contact"
+                className={styles.mobileNavLink}
+                onClick={closeMobileMenu}
+                variants={linkVariants}
+              >
+                Contact
+              </motion.a>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 };
