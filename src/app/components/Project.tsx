@@ -1,3 +1,5 @@
+// src/app/components/Projects.tsx
+
 'use client';
 
 import React, { useState } from 'react';
@@ -76,10 +78,12 @@ const Projects: React.FC = () => {
 
   const openModal = (project: Project) => {
     setSelectedProject(project);
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
   };
 
   const closeModal = () => {
     setSelectedProject(null);
+    document.body.style.overflow = 'auto'; // Re-enable background scrolling
   };
 
   const cardVariants = {
@@ -88,12 +92,22 @@ const Projects: React.FC = () => {
       opacity: 1,
       y: 0,
       transition: {
-        delay: i * 0.2,
+        delay: i * 0.1,
         duration: 0.6,
         type: 'spring',
         stiffness: 100,
       },
     }),
+  };
+
+  const backdropVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1 },
+  };
+
+  const modalVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    visible: { opacity: 1, scale: 1 },
   };
 
   return (
@@ -109,7 +123,7 @@ const Projects: React.FC = () => {
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
             variants={cardVariants}
-            whileHover={{ scale: 1.05, boxShadow: '0px 10px 20px rgba(239, 68, 68, 0.3)' }}
+            whileHover={{ scale: 1.02, boxShadow: '0px 8px 16px rgba(239, 68, 68, 0.3)' }}
             transition={{ type: 'spring', stiffness: 300 }}
             onClick={() => openModal(project)}
           >
@@ -124,7 +138,9 @@ const Projects: React.FC = () => {
                 ))}
               </ul>
             </div>
-            <button className={styles.viewButton}>View Project</button>
+            <button className={styles.viewButton} onClick={() => openModal(project)}>
+              View Project
+            </button>
           </motion.div>
         ))}
       </div>
@@ -132,16 +148,18 @@ const Projects: React.FC = () => {
         {selectedProject && (
           <motion.div
             className={styles.modalOverlay}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
+            variants={backdropVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden"
             onClick={closeModal}
           >
             <motion.div
               className={styles.modalContent}
-              initial={{ scale: 0.8, opacity: 0 }}
-              animate={{ scale: 1, opacity: 1 }}
-              exit={{ scale: 0.8, opacity: 0 }}
+              variants={modalVariants}
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
               transition={{ duration: 0.3 }}
               onClick={(e) => e.stopPropagation()}
             >
