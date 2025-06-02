@@ -3,6 +3,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import styles from './about.module.css';
 import { motion } from 'framer-motion';
 
@@ -18,7 +19,7 @@ const About: React.FC = () => {
           transition={{ duration: 1 }}
           viewport={{ once: true }}
         >
-          <img src="https://i.postimg.cc/0NLm4jPr/Picsart-24-08-09-09-56-14-849.png" alt="Profile" className={styles.profileImage} />
+          <Image src="/images/profile.webp" alt="Profile" width={300} height={300} className={styles.profileImage} />
         </motion.div>
         <motion.div
           className={styles.aboutContent}

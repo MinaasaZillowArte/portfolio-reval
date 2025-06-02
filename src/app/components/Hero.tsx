@@ -3,6 +3,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import styles from './Hero.module.css';
 import { motion } from 'framer-motion';
 
@@ -17,22 +18,22 @@ const Hero: React.FC = () => {
           <motion.div
             className={styles.shape}
             animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 20, ease: 'linear' }}
+            transition={{ repeat: Infinity, duration: 40, ease: 'linear' }}
           />
           <motion.div
             className={styles.shape}
             animate={{ y: [0, 20, 0] }}
-            transition={{ repeat: Infinity, duration: 5, ease: 'easeInOut' }}
-          />
-          <motion.div
-            className={styles.shape}
-            animate={{ scale: [1, 1.2, 1] }}
             transition={{ repeat: Infinity, duration: 10, ease: 'easeInOut' }}
           />
           <motion.div
             className={styles.shape}
+            animate={{ scale: [1, 1.2, 1] }}
+            transition={{ repeat: Infinity, duration: 20, ease: 'easeInOut' }}
+          />
+          <motion.div
+            className={styles.shape}
             animate={{ rotate: -360 }}
-            transition={{ repeat: Infinity, duration: 25, ease: 'linear' }}
+            transition={{ repeat: Infinity, duration: 50, ease: 'linear' }}
           />
         </div>
       </div>
@@ -95,8 +96,8 @@ const Hero: React.FC = () => {
             className={styles.iconLink}
             aria-label="GitHub"
           >
-            <img
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/github.svg"
+            <Image
+              src="/images/github.svg"
               alt="GitHub"
               width={24}
               height={24}
@@ -110,8 +111,8 @@ const Hero: React.FC = () => {
             className={styles.iconLink}
             aria-label="LinkedIn"
           >
-            <img
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/linkedin.svg"
+            <Image
+              src="/images/linkedin.svg"
               alt="LinkedIn"
               width={24}
               height={24}
@@ -125,8 +126,8 @@ const Hero: React.FC = () => {
             className={styles.iconLink}
             aria-label="Twitter"
           >
-            <img
-              src="https://cdn.jsdelivr.net/npm/simple-icons@v5/icons/twitter.svg"
+            <Image
+              src="/images/twitter.svg"
               alt="Twitter"
               width={24}
               height={24}

@@ -3,6 +3,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import dynamic from 'next/dynamic';
 import styles from './projects.module.css';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -72,6 +73,8 @@ const projectsData: Project[] = [
     repoLink: 'https://github.com/yourusername/ai-chatbot',
   },
 ];
+
+const ProjectModal = dynamic(() => import('./ProjectModal'), { ssr: false });
 
 const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -144,54 +147,7 @@ const Projects: React.FC = () => {
           </motion.div>
         ))}
       </div>
-      <AnimatePresence>
-        {selectedProject && (
-          <motion.div
-            className={styles.modalOverlay}
-            variants={backdropVariants}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            onClick={closeModal}
-          >
-            <motion.div
-              className={styles.modalContent}
-              variants={modalVariants}
-              initial="hidden"
-              animate="visible"
-              exit="hidden"
-              transition={{ duration: 0.3 }}
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button className={styles.closeButton} onClick={closeModal} aria-label="Close Modal">
-                &times;
-              </button>
-              <h3 className={styles.modalHeading}>{selectedProject.title}</h3>
-              <p className={styles.modalDescription}>{selectedProject.fullDescription}</p>
-              <h4 className={styles.modalSubHeading}>Technologies Used:</h4>
-              <ul className={styles.modalTechnologiesList}>
-                {selectedProject.technologies.map((tech, idx) => (
-                  <li key={idx} className={styles.modalTechnologyItem}>
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-              <div className={styles.modalLinks}>
-                {selectedProject.liveLink && (
-                  <a href={selectedProject.liveLink} target="_blank" rel="noopener noreferrer" className={styles.modalLink}>
-                    Live Demo
-                  </a>
-                )}
-                {selectedProject.repoLink && (
-                  <a href={selectedProject.repoLink} target="_blank" rel="noopener noreferrer" className={styles.modalLink}>
-                    Repository
-                  </a>
-                )}
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {selectedProject && <ProjectModal project={selectedProject} onClose={closeModal} />}
     </section>
   );
 };
