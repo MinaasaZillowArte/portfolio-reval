@@ -2,41 +2,67 @@
 
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Image from 'next/image';
 import styles from './Hero.module.css';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform, useMotionValue } from 'framer-motion'; // Added useMotionValue
 
 const Hero: React.FC = () => {
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"]
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+
+  // Mouse follow effect values
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  const rotateXMouse = useTransform(mouseY, [-300, 300], [-10, 10]);
+  const rotateYMouse = useTransform(mouseX, [-300, 300], [10, -10]);
+
+  const handleMouseMove = (event: React.MouseEvent<HTMLElement, MouseEvent>) => {
+    if (heroRef.current) {
+      const rect = heroRef.current.getBoundingClientRect();
+      mouseX.set(event.clientX - rect.left - rect.width / 2);
+      mouseY.set(event.clientY - rect.top - rect.height / 2);
+    }
+  };
+
   return (
-    <section className={styles.heroSection}>
-      {/* Animated Background Layers */}
-      <div className={styles.background}>
-        <div className={styles.gradient}></div>
-        <div className={styles.particles}></div>
-        <div className={styles.shapes}>
-          <motion.div
-            className={styles.shape}
-            animate={{ rotate: 360 }}
-            transition={{ repeat: Infinity, duration: 40, ease: 'linear' }}
-          />
-          <motion.div
-            className={styles.shape}
-            animate={{ y: [0, 20, 0] }}
-            transition={{ repeat: Infinity, duration: 10, ease: 'easeInOut' }}
-          />
-          <motion.div
-            className={styles.shape}
-            animate={{ scale: [1, 1.2, 1] }}
-            transition={{ repeat: Infinity, duration: 20, ease: 'easeInOut' }}
-          />
-          <motion.div
-            className={styles.shape}
-            animate={{ rotate: -360 }}
-            transition={{ repeat: Infinity, duration: 50, ease: 'linear' }}
-          />
-        </div>
-      </div>
+    <section
+      ref={heroRef}
+      className={styles.heroSection}
+      onMouseMove={handleMouseMove} // Added mouse move handler
+    >
+      <motion.div
+        className={styles.parallaxBackgroundContainer}
+        style={{ scale }}
+      >
+        <Image
+          src="/images/hero_background_wave.jpg"
+          alt="Ocean wave background"
+          layout="fill"
+          objectFit="cover"
+          priority // Preload this important image
+        />
+      </motion.div>
+
+      {/* Pseudo-3D Elements */}
+      <motion.div
+        className={styles.pseudo3dCube}
+        style={{
+          rotateX: rotateXMouse,
+          rotateY: rotateYMouse,
+        }}
+      />
+      <motion.div
+        className={styles.pseudo3dOrb}
+        animate={{ scale: [1, 1.1, 1] }}
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+      />
 
       {/* Content Container */}
       <div className={styles.contentContainer}>
@@ -140,15 +166,19 @@ const Hero: React.FC = () => {
 
       </div>
 
-      {/* Additional Decorative Elements */}
+      {/* Additional Decorative Elements - This might be the old .shapes or .decorativeElement, consider if needed or removing */}
+      {/* For now, let's assume the new pseudo3D elements replace the old .decorativeElement if it was singular */}
+      {/* If styles.decorativeElement is still used for something else, it can remain. Based on the prompt, this might be removed or replaced. */}
+      {/* Let's remove the specific one named decorativeElement as its purpose seems to be superseded by the new 3D elements */}
+      {/*
       <motion.div
         className={styles.decorativeElement}
         initial={{ opacity: 0, scale: 0 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 1, delay: 2.5 }}
       >
-        {/* Add any additional decorative elements or animations here */}
       </motion.div>
+      */}
     </section>
   );
 };
