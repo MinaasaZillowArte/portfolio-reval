@@ -176,8 +176,7 @@
   }
   
   .input:focus {
-    /* border-color: #ef4444; */
-    composes: border-app-accent from global;
+    border-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
     box-shadow: 0 0 0 3px rgba(var(--app-accent-rgb), 0.2);
     outline: none;
   }
@@ -197,8 +196,7 @@
   }
   
   .textarea:focus {
-  border-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
-  border-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
+  border-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Single Direct style */
     box-shadow: 0 0 0 3px rgba(var(--app-accent-rgb), 0.2);
     outline: none;
   }

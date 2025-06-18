@@ -141,7 +141,6 @@
   width: 0%;
   height: 3px;
   background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
-  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
@@ -165,8 +164,7 @@
   position: absolute;
   width: 0%;
   height: 3px;
-  /* background-color: #ef4444; */ /* Changed from blue to red */
-  composes: bg-app-accent from global;
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
