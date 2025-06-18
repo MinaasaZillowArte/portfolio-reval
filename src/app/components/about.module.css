@@ -27,8 +27,7 @@
   position: absolute;
   width: 100px;
   height: 5px;
-  /* background-color: #ef4444; */
-  composes: bg-app-accent from global;
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
@@ -87,8 +86,7 @@
   position: absolute;
   width: 60px;
   height: 4px;
-  /* background-color: #ef4444; */
-  composes: bg-app-accent from global;
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   bottom: -10px;
   left: 0;
   border-radius: 2px;
@@ -131,8 +129,8 @@
 }
 
 .skillItem:hover {
-  /* background-color: #ef4444; */
-  composes: bg-app-accent text-app-text-primary from global;
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
+  color: rgba(var(--app-text-primary-rgb), 1); /* Corrected: Direct style */
   transform: translateY(-2px);
 }
 
@@ -151,8 +149,7 @@
 }
 
 .ctaButton:hover {
-  /* background-color: #dc2626; */
-  composes: bg-app-accent-hover from global;
+  background-color: rgba(var(--app-accent-hover-rgb), 1); /* Corrected: Direct style */
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(var(--app-accent-rgb), 0.3);
 }

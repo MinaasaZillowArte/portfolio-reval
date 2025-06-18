@@ -27,8 +27,7 @@
   position: absolute;
   width: 100px;
   height: 5px;
-  /* background-color: #ef4444; */
-  composes: bg-app-accent from global;
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
@@ -76,8 +75,7 @@
   position: absolute;
   top: -20px;
   left: 10px;
-  /* color: #ef4444; */
-  composes: text-app-accent from global;
+  color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
 }
 
 .content::after {
@@ -86,8 +84,7 @@
   position: absolute;
   bottom: -20px;
   right: 10px;
-  /* color: #ef4444; */
-  composes: text-app-accent from global;
+  color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
 }
 
 .name {
@@ -104,8 +101,7 @@
   position: absolute;
   width: 60px;
   height: 4px;
-  /* background-color: #ef4444; */
-  composes: bg-app-accent from global;
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);

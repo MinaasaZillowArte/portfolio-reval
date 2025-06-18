@@ -140,8 +140,8 @@
   position: absolute;
   width: 0%;
   height: 3px;
-  /* background-color: #ef4444; */ /* Changed from blue to red */
-  composes: bg-app-accent from global;
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
@@ -173,8 +173,7 @@
 }
 
 .highlight:hover {
-  /* color: #fecaca; */ /* Tailwind's red-200 for hover */
-  composes: text-app-text-primary from global; /* Changed to primary text for contrast */
+  color: rgba(var(--app-text-primary-rgb), 1); /* Corrected: Direct style */
 }
 
 .highlight:hover::after {
@@ -208,8 +207,7 @@
 }
 
 .primaryButton:hover {
-  /* background-color: #dc2626; */ /* Darker red */
-  composes: bg-app-accent-hover from global;
+  background-color: rgba(var(--app-accent-hover-rgb), 1); /* Corrected: Direct style */
   transform: translateY(-3px);
   box-shadow: 0 6px 8px rgba(var(--app-accent-hover-rgb), 0.4);
 }
@@ -222,9 +220,8 @@
 }
 
 .secondaryButton:hover {
-  /* background-color: #ef4444; */ /* Changed to red */
-  /* color: #ffffff; */
-  composes: bg-app-accent text-app-text-primary from global;
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
+  color: rgba(var(--app-text-primary-rgb), 1); /* Corrected: Direct style */
   transform: translateY(-3px);
   box-shadow: 0 6px 8px rgba(var(--app-accent-rgb), 0.6); /* Adjusted red shadow */
 }
@@ -252,8 +249,7 @@
 }
 
 .iconLink:hover {
-  /* background-color: #ef4444; */ /* Changed to red */
-  composes: bg-app-accent from global;
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   transform: scale(1.2);
   box-shadow: 0 6px 8px rgba(var(--app-accent-rgb), 0.5);
 }

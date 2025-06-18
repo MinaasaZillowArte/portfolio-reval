@@ -27,8 +27,7 @@
     position: absolute;
     width: 100px;
     height: 5px;
-    /* background-color: #ef4444; */
-    composes: bg-app-accent from global;
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
     bottom: -15px;
     left: 50%;
     transform: translateX(-50%);
@@ -91,8 +90,7 @@
   }
   
   .link:hover {
-    /* color: #dc2626; */
-    composes: text-app-accent-hover from global;
+  color: rgba(var(--app-accent-hover-rgb), 1); /* Corrected: Direct style */
   }
   
   .text {
@@ -112,8 +110,7 @@
   }
   
   .socialLink:hover {
-    /* color: #ef4444; */
-    composes: text-app-accent from global;
+  color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   }
   
   .socialIcon {
@@ -200,8 +197,8 @@
   }
   
   .textarea:focus {
-    /* border-color: #ef4444; */
-    composes: border-app-accent from global;
+  border-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
+  border-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
     box-shadow: 0 0 0 3px rgba(var(--app-accent-rgb), 0.2);
     outline: none;
   }
@@ -220,8 +217,7 @@
   }
   
   .submitButton:hover {
-    /* background-color: #dc2626; */
-    composes: bg-app-accent-hover from global;
+  background-color: rgba(var(--app-accent-hover-rgb), 1); /* Corrected: Direct style */
   }
   
   @media (max-width: 1024px) {

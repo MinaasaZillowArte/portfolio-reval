@@ -35,8 +35,7 @@
 }
 
 .logoText:hover {
-  /* color: #3b82f6; */
-  composes: text-app-accent from global;
+  color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   transform: scale(1.05);
 }
 
@@ -62,14 +61,12 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  /* background-color: #3b82f6; */
-  composes: bg-app-accent from global;
+  background-color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   transition: width 0.3s ease;
 }
 
 .navLink:hover {
-  /* color: #3b82f6; */
-  composes: text-app-accent from global;
+  color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
 }
 
 .navLink:hover::after {
@@ -90,8 +87,7 @@
 }
 
 .menuButton:hover {
-  /* color: #ffffff; */
-  composes: text-app-text-primary from global;
+  color: rgba(var(--app-text-primary-rgb), 1); /* Corrected: Direct style */
 }
 
 .menuIcon {
@@ -122,8 +118,7 @@
 }
 
 .mobileNavLink:hover {
-  /* color: #3b82f6; */
-  composes: text-app-accent from global;
+  color: rgba(var(--app-accent-rgb), 1); /* Corrected: Direct style */
   transform: translateX(10px);
 }
 
