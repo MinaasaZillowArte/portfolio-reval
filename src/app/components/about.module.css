@@ -1,8 +1,9 @@
 /* src/app/components/about.module.css */
 
 .aboutSection {
-  background-color: #1f2937;
-  color: #d1d5db;
+  /* background-color: #1f2937; */
+  /* color: #d1d5db; */
+  composes: bg-app-primary text-app-text-secondary from global;
   padding: 6rem 2rem;
   display: flex;
   flex-direction: column;
@@ -15,7 +16,8 @@
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 4rem;
-  color: #ef4444;
+  /* color: #ef4444; */
+  composes: text-app-accent from global;
   text-align: center;
   position: relative;
 }
@@ -25,7 +27,8 @@
   position: absolute;
   width: 100px;
   height: 5px;
-  background-color: #ef4444;
+  /* background-color: #ef4444; */
+  composes: bg-app-accent from global;
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
@@ -52,15 +55,16 @@
   width: 100%;
   max-width: 300px;
   border-radius: 1rem;
-  border: 4px solid #ef4444;
+  /* border: 4px solid #ef4444; */
+  composes: border-4 border-app-accent from global;
   object-fit: cover;
-  box-shadow: 0 8px 16px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 8px 16px rgba(var(--app-accent-rgb), 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profileImage:hover {
   transform: scale(1.05);
-  box-shadow: 0 12px 24px rgba(239, 68, 68, 0.4);
+  box-shadow: 0 12px 24px rgba(var(--app-accent-rgb), 0.4);
 }
 
 .aboutContent {
@@ -73,7 +77,8 @@
 .subHeading {
   font-size: 2rem;
   font-weight: 700;
-  color: #ffffff;
+  /* color: #ffffff; */
+  composes: text-app-text-primary from global;
   position: relative;
 }
 
@@ -82,7 +87,8 @@
   position: absolute;
   width: 60px;
   height: 4px;
-  background-color: #ef4444;
+  /* background-color: #ef4444; */
+  composes: bg-app-accent from global;
   bottom: -10px;
   left: 0;
   border-radius: 2px;
@@ -102,7 +108,8 @@
 .skillsHeading {
   font-size: 1.5rem;
   font-weight: 700;
-  color: #ffffff;
+  /* color: #ffffff; */
+  composes: text-app-text-primary from global;
 }
 
 .skillsList {
@@ -114,22 +121,25 @@
 }
 
 .skillItem {
-  background-color: #374151;
+  /* background-color: #374151; */
   padding: 0.5rem 1rem;
   border-radius: 9999px;
   font-size: 0.875rem;
-  color: #d1d5db;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  /* color: #d1d5db; */
+  composes: bg-app-secondary text-app-text-secondary from global;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .skillItem:hover {
-  background-color: #ef4444;
+  /* background-color: #ef4444; */
+  composes: bg-app-accent text-app-text-primary from global;
   transform: translateY(-2px);
 }
 
 .ctaButton {
-  background-color: #ef4444;
-  color: #ffffff;
+  /* background-color: #ef4444; */
+  /* color: #ffffff; */
+  composes: bg-app-accent text-app-text-primary from global;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 9999px;
@@ -141,9 +151,10 @@
 }
 
 .ctaButton:hover {
-  background-color: #dc2626;
+  /* background-color: #dc2626; */
+  composes: bg-app-accent-hover from global;
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 8px 16px rgba(var(--app-accent-rgb), 0.3);
 }
 
 @media (max-width: 1024px) {

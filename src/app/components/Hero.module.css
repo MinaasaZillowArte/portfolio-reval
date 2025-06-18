@@ -4,12 +4,13 @@
   position: relative;
   width: 100%;
   height: 100vh;
-  background-color: #0f172a; /* Tailwind's slate-900 */
+  /* background-color: #0f172a; */ /* Replaced by bg-app-primary below */
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  color: #ffffff;
+  /* color: #ffffff; */ /* Replaced by text-app-text-primary below */
+  composes: bg-app-primary text-app-text-primary from global;
 }
 
 .background {
@@ -26,7 +27,7 @@
   position: absolute;
   width: 200%;
   height: 200%;
-  background: linear-gradient(45deg, #1e3a8a, #3b82f6, #1e3a8a, #3b82f6);
+  background: linear-gradient(45deg, rgba(var(--app-accent-rgb), 1), rgba(var(--app-accent-hover-rgb), 1), rgba(var(--app-accent-rgb), 1), rgba(var(--app-accent-hover-rgb), 1));
   background-size: 400% 400%;
   animation: gradientShift 15s ease infinite;
   top: -50%;
@@ -69,9 +70,9 @@
 
 .shape {
   position: absolute;
-  background-color: rgba(59, 130, 246, 0.2); /* Tailwind's blue-500 with opacity */
+  background-color: rgba(var(--app-accent-rgb), 0.2);
   border-radius: 50%;
-  box-shadow: 0 0 15px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 15px rgba(var(--app-accent-rgb), 0.5);
   animation: float 6s ease-in-out infinite, scalePulse 4s ease-in-out infinite;
 }
 
@@ -111,7 +112,7 @@
   font-size: 3rem; /* text-3xl */
   font-weight: 800; /* font-extrabold */
   margin-bottom: 1rem;
-  color: #ffffff;
+  /* color: #ffffff; */ /* Replaced by text-app-text-primary from .heroSection */
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
   animation: fadeInDown 1s ease forwards;
 }
@@ -120,12 +121,14 @@
   font-size: 1.5rem; /* text-xl */
   font-weight: 400; /* font-normal */
   margin-bottom: 2rem;
-  color: #cbd5e1; /* Tailwind's slate-300 */
+  /* color: #cbd5e1; */ /* Tailwind's slate-300 */
+  composes: text-app-text-secondary from global;
   animation: fadeInUp 1s ease forwards;
 }
 
 .name {
-  color: #ef4444; /* Changed from blue to red */
+  /* color: #ef4444; */ /* Changed from blue to red */
+  composes: text-app-accent from global;
   position: relative;
   display: inline-block;
   padding-bottom: 3px;
@@ -137,7 +140,8 @@
   position: absolute;
   width: 0%;
   height: 3px;
-  background-color: #ef4444; /* Changed from blue to red */
+  /* background-color: #ef4444; */ /* Changed from blue to red */
+  composes: bg-app-accent from global;
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
@@ -148,7 +152,8 @@
 }
 
 .highlight {
-  color: #ef4444; /* Changed from blue to red */
+  /* color: #ef4444; */ /* Changed from blue to red */
+  composes: text-app-accent from global;
   position: relative;
   display: inline-block;
   padding-bottom: 3px;
@@ -160,14 +165,16 @@
   position: absolute;
   width: 0%;
   height: 3px;
-  background-color: #ef4444; /* Changed from blue to red */
+  /* background-color: #ef4444; */ /* Changed from blue to red */
+  composes: bg-app-accent from global;
   bottom: 0;
   left: 0;
   transition: width 0.3s ease;
 }
 
 .highlight:hover {
-  color: #fecaca; /* Tailwind's red-200 for hover */
+  /* color: #fecaca; */ /* Tailwind's red-200 for hover */
+  composes: text-app-text-primary from global; /* Changed to primary text for contrast */
 }
 
 .highlight:hover::after {
@@ -191,31 +198,35 @@
   font-weight: 600;
   text-decoration: none;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px rgba(220, 38, 38, 0.4); /* Red shadow */
+  box-shadow: 0 4px 6px rgba(var(--app-accent-rgb), 0.4); /* Red shadow */
 }
 
 .primaryButton {
-  background-color: #ef4444; /* Red */
-  color: #ffffff;
+  /* background-color: #ef4444; */ /* Red */
+  /* color: #ffffff; */
+  composes: bg-app-accent text-app-text-primary from global;
 }
 
 .primaryButton:hover {
-  background-color: #dc2626; /* Darker red */
+  /* background-color: #dc2626; */ /* Darker red */
+  composes: bg-app-accent-hover from global;
   transform: translateY(-3px);
-  box-shadow: 0 6px 8px rgba(220, 38, 38, 0.4);
+  box-shadow: 0 6px 8px rgba(var(--app-accent-hover-rgb), 0.4);
 }
 
 .secondaryButton {
-  background-color: #1e293b; /* Tailwind's slate-800 */
-  color: #cbd5e1; /* Tailwind's slate-300 */
-  border: 2px solid #ef4444; /* Changed border to red */
+  /* background-color: #1e293b; */ /* Tailwind's slate-800 */
+  /* color: #cbd5e1; */ /* Tailwind's slate-300 */
+  /* border: 2px solid #ef4444; */ /* Changed border to red */
+  composes: bg-app-primary text-app-text-secondary border-2 border-app-accent from global;
 }
 
 .secondaryButton:hover {
-  background-color: #ef4444; /* Changed to red */
-  color: #ffffff;
+  /* background-color: #ef4444; */ /* Changed to red */
+  /* color: #ffffff; */
+  composes: bg-app-accent text-app-text-primary from global;
   transform: translateY(-3px);
-  box-shadow: 0 6px 8px rgba(239, 68, 68, 0.6); /* Adjusted red shadow */
+  box-shadow: 0 6px 8px rgba(var(--app-accent-rgb), 0.6); /* Adjusted red shadow */
 }
 
 .socialIcons {
@@ -230,19 +241,21 @@
 .iconLink {
   width: 50px;
   height: 50px;
-  background-color: #1e293b; /* Tailwind's slate-800 */
+  /* background-color: #1e293b; */ /* Tailwind's slate-800 */
+  composes: bg-app-primary from global;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 6px rgba(220, 38, 38, 0.3); /* Red shadow */
+  box-shadow: 0 4px 6px rgba(var(--app-accent-rgb), 0.3); /* Red shadow */
 }
 
 .iconLink:hover {
-  background-color: #ef4444; /* Changed to red */
+  /* background-color: #ef4444; */ /* Changed to red */
+  composes: bg-app-accent from global;
   transform: scale(1.2);
-  box-shadow: 0 6px 8px rgba(239, 68, 68, 0.5);
+  box-shadow: 0 6px 8px rgba(var(--app-accent-rgb), 0.5);
 }
 
 .iconImage {
@@ -256,9 +269,9 @@
   right: 10%;
   width: 150px;
   height: 150px;
-  background-color: rgba(220, 38, 38, 0.2);
+  background-color: rgba(var(--app-accent-hover-rgb), 0.2); /* Using accent-hover for this red decorative element */
   border-radius: 50%;
-  box-shadow: 0 0 20px rgba(220, 38, 38, 0.5);
+  box-shadow: 0 0 20px rgba(var(--app-accent-hover-rgb), 0.5);
   animation: float 7s ease-in-out infinite, rotatePulse 5s ease-in-out infinite;
   z-index: 2;
 }
@@ -444,6 +457,11 @@
     gap: 0.5rem;
   }
 
+  .primaryButton,
+  .secondaryButton {
+    padding: 0.6rem 1.2rem; /* Adjusted padding for smaller screens */
+  }
+
   .decorativeElement {
     display: none;
   }
@@ -465,6 +483,11 @@
 
   .socialIcons {
     gap: 0.5rem;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    padding: 0.5rem 1rem; /* Further adjusted padding for very small screens */
   }
 }
 
@@ -500,7 +523,8 @@
 .secondaryButton:focus,
 .iconLink:focus,
 .scrollLink:focus {
-  outline: 2px solid #ef4444; /* Changed to red */
+  /* outline: 2px solid #ef4444; */ /* Changed to red */
+  outline: 2px solid var(--app-accent-rgb); /* Using CSS variable for outline color */
   outline-offset: 4px;
 }
 

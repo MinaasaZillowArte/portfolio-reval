@@ -1,8 +1,9 @@
 /* src/app/components/projects.module.css */
 
 .projectsSection {
-  background-color: #1f2937;
-  color: #d1d5db;
+  /* background-color: #1f2937; */
+  /* color: #d1d5db; */
+  composes: bg-app-primary text-app-text-secondary from global;
   padding: 6rem 2rem;
   display: flex;
   flex-direction: column;
@@ -15,7 +16,8 @@
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 4rem;
-  color: #ef4444;
+  /* color: #ef4444; */
+  composes: text-app-accent from global;
   text-align: center;
   position: relative;
 }
@@ -25,7 +27,8 @@
   position: absolute;
   width: 100px;
   height: 5px;
-  background-color: #ef4444;
+  /* background-color: #ef4444; */
+  composes: bg-app-accent from global;
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
@@ -41,10 +44,11 @@
 }
 
 .projectCard {
-  background-color: #374151;
+  /* background-color: #374151; */
+  composes: bg-app-secondary from global;
   padding: 2.5rem 1.5rem;
   border-radius: 1.5rem;
-  box-shadow: 0 12px 24px rgba(239, 68, 68, 0.4);
+  box-shadow: 0 12px 24px rgba(var(--app-accent-rgb), 0.4);
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -56,7 +60,7 @@
 
 .projectCard:hover {
   transform: scale(1.02);
-  box-shadow: 0 16px 32px rgba(239, 68, 68, 0.5);
+  box-shadow: 0 16px 32px rgba(var(--app-accent-rgb), 0.5);
 }
 
 .cardContent {
@@ -67,7 +71,8 @@
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #ffffff;
+  /* color: #ffffff; */
+  composes: text-app-text-primary from global;
   position: relative;
 }
 
@@ -76,7 +81,8 @@
   position: absolute;
   width: 60px;
   height: 4px;
-  background-color: #ef4444;
+  /* background-color: #ef4444; */
+  composes: bg-app-accent from global;
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
@@ -99,22 +105,25 @@
 }
 
 .technologyItem {
-  background-color: #4b5563;
+  /* background-color: #4b5563; */
   padding: 0.5rem 1rem;
   border-radius: 9999px;
   font-size: 0.875rem;
-  color: #d1d5db;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  /* color: #d1d5db; */
+  composes: bg-app-secondary text-app-text-secondary from global;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .technologyItem:hover {
-  background-color: #ef4444;
+  /* background-color: #ef4444; */
+  composes: bg-app-accent text-app-text-primary from global;
   transform: translateY(-2px);
 }
 
 .viewButton {
-  background-color: #ef4444;
-  color: #ffffff;
+  /* background-color: #ef4444; */
+  /* color: #ffffff; */
+  composes: bg-app-accent text-app-text-primary from global;
   padding: 0.75rem 1.5rem;
   border: none;
   border-radius: 9999px;
@@ -127,9 +136,10 @@
 }
 
 .viewButton:hover {
-  background-color: #dc2626;
+  /* background-color: #dc2626; */
+  composes: bg-app-accent-hover from global;
   transform: scale(1.05);
-  box-shadow: 0 8px 16px rgba(239, 68, 68, 0.3);
+  box-shadow: 0 8px 16px rgba(var(--app-accent-rgb), 0.3);
 }
 
 .modalOverlay {
@@ -138,7 +148,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(31, 41, 55, 0.95);
+  background-color: rgba(var(--app-primary-rgb), 0.95);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -147,16 +157,17 @@
 }
 
 .modalContent {
-  background-color: #1f2937;
+  /* background-color: #1f2937; */
+  /* color: #d1d5db; */
+  composes: bg-app-primary text-app-text-secondary from global;
   padding: 3rem 2rem;
   border-radius: 1.5rem;
   width: 100%;
   max-width: 600px;
   position: relative;
-  color: #d1d5db;
   overflow-y: auto;
   max-height: 90vh;
-  box-shadow: 0 15px 30px rgba(239, 68, 68, 0.5);
+  box-shadow: 0 15px 30px rgba(var(--app-accent-rgb), 0.5);
 }
 
 .closeButton {
@@ -166,20 +177,23 @@
   background: none;
   border: none;
   font-size: 2rem;
-  color: #ef4444;
+  /* color: #ef4444; */
+  composes: text-app-accent from global;
   cursor: pointer;
   transition: color 0.3s ease;
 }
 
 .closeButton:hover {
-  color: #dc2626;
+  /* color: #dc2626; */
+  composes: text-app-accent-hover from global;
 }
 
 .modalHeading {
   font-size: 2.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  color: #ffffff;
+  /* color: #ffffff; */
+  composes: text-app-text-primary from global;
   text-align: center;
   position: relative;
 }
@@ -189,7 +203,8 @@
   position: absolute;
   width: 80px;
   height: 5px;
-  background-color: #ef4444;
+  /* background-color: #ef4444; */
+  composes: bg-app-accent from global;
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
@@ -206,7 +221,8 @@
   font-size: 1.5rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #ef4444;
+  /* color: #ef4444; */
+  composes: text-app-accent from global;
   text-align: left;
 }
 
@@ -220,16 +236,18 @@
 }
 
 .modalTechnologyItem {
-  background-color: #4b5563;
+  /* background-color: #4b5563; */
   padding: 0.5rem 1rem;
   border-radius: 9999px;
   font-size: 0.875rem;
-  color: #d1d5db;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  /* color: #d1d5db; */
+  composes: bg-app-secondary text-app-text-secondary from global;
+  transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
 }
 
 .modalTechnologyItem:hover {
-  background-color: #ef4444;
+  /* background-color: #ef4444; */
+  composes: bg-app-accent text-app-text-primary from global;
   transform: translateY(-2px);
 }
 
@@ -240,8 +258,9 @@
 }
 
 .modalLink {
-  background-color: #ef4444;
-  color: #ffffff;
+  /* background-color: #ef4444; */
+  /* color: #ffffff; */
+  composes: bg-app-accent text-app-text-primary from global;
   padding: 0.75rem 1.5rem;
   border-radius: 9999px;
   text-decoration: none;
@@ -251,7 +270,8 @@
 }
 
 .modalLink:hover {
-  background-color: #dc2626;
+  /* background-color: #dc2626; */
+  composes: bg-app-accent-hover from global;
   transform: scale(1.05);
 }
 

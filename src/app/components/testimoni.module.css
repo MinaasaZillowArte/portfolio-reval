@@ -1,8 +1,9 @@
 /* src/app/components/testimoni.module.css */
 
 .testimoniSection {
-  background-color: #1f2937;
-  color: #d1d5db;
+  /* background-color: #1f2937; */
+  /* color: #d1d5db; */
+  composes: bg-app-primary text-app-text-secondary from global;
   padding: 6rem 2rem;
   display: flex;
   flex-direction: column;
@@ -15,7 +16,8 @@
   font-size: 3rem;
   font-weight: 800;
   margin-bottom: 4rem;
-  color: #ef4444;
+  /* color: #ef4444; */
+  composes: text-app-accent from global;
   text-align: center;
   position: relative;
 }
@@ -25,7 +27,8 @@
   position: absolute;
   width: 100px;
   height: 5px;
-  background-color: #ef4444;
+  /* background-color: #ef4444; */
+  composes: bg-app-accent from global;
   bottom: -15px;
   left: 50%;
   transform: translateX(-50%);
@@ -41,15 +44,21 @@
 }
 
 .testimoniCard {
-  background-color: #374151;
+  /* background-color: #374151; */
+  composes: bg-app-secondary from global;
   padding: 3rem 2rem;
   border-radius: 1.5rem;
-  box-shadow: 0 12px 24px rgba(239, 68, 68, 0.4);
+  box-shadow: 0 12px 24px rgba(var(--app-accent-rgb), 0.4);
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimoniCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 16px 28px rgba(var(--app-accent-rgb), 0.5); /* Slightly enhanced shadow on hover */
 }
 
 .content {
@@ -67,7 +76,8 @@
   position: absolute;
   top: -20px;
   left: 10px;
-  color: #ef4444;
+  /* color: #ef4444; */
+  composes: text-app-accent from global;
 }
 
 .content::after {
@@ -76,14 +86,16 @@
   position: absolute;
   bottom: -20px;
   right: 10px;
-  color: #ef4444;
+  /* color: #ef4444; */
+  composes: text-app-accent from global;
 }
 
 .name {
   font-size: 1.75rem;
   font-weight: 700;
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  /* color: #ffffff; */
+  composes: text-app-text-primary from global;
   position: relative;
 }
 
@@ -92,7 +104,8 @@
   position: absolute;
   width: 60px;
   height: 4px;
-  background-color: #ef4444;
+  /* background-color: #ef4444; */
+  composes: bg-app-accent from global;
   bottom: -10px;
   left: 50%;
   transform: translateX(-50%);
@@ -101,7 +114,8 @@
 
 .position {
   font-size: 1.125rem;
-  color: #9ca3af;
+  /* color: #9ca3af; */
+  composes: text-app-text-secondary from global;
 }
 
 @media (max-width: 1024px) {
@@ -125,6 +139,17 @@
 
   .content {
     font-size: 1.25rem;
+  }
+
+  .content::before {
+    font-size: 2.5rem; /* Responsive quote mark */
+    top: -15px;
+    left: 5px;
+  }
+  .content::after {
+    font-size: 2.5rem; /* Responsive quote mark */
+    bottom: -15px;
+    right: 5px;
   }
 
   .name {
@@ -159,6 +184,17 @@
     font-size: 1rem;
   }
 
+  .content::before {
+    font-size: 2rem; /* Responsive quote mark */
+    top: -10px;
+    left: 0px;
+  }
+  .content::after {
+    font-size: 2rem; /* Responsive quote mark */
+    bottom: -10px;
+    right: 0px;
+  }
+
   .name {
     font-size: 1.25rem;
   }
@@ -184,6 +220,17 @@
 
   .content {
     font-size: 0.9rem;
+  }
+
+  .content::before {
+    font-size: 1.75rem; /* Responsive quote mark */
+    top: -5px;
+    left: 0px;
+  }
+  .content::after {
+    font-size: 1.75rem; /* Responsive quote mark */
+    bottom: -5px;
+    right: 0px;
   }
 
   .name {

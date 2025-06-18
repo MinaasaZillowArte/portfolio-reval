@@ -10,7 +10,8 @@
 }
 
 .scrolled {
-  background-color: #1f2937;
+  /* background-color: #1f2937; */
+  composes: bg-app-primary from global;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -27,13 +28,15 @@
 .logoText {
   font-size: 1.75rem;
   font-weight: 800;
-  color: #ffffff;
+  /* color: #ffffff; */
+  composes: text-app-text-primary from global;
   cursor: pointer;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .logoText:hover {
-  color: #3b82f6;
+  /* color: #3b82f6; */
+  composes: text-app-accent from global;
   transform: scale(1.05);
 }
 
@@ -45,7 +48,8 @@
 
 .navLink {
   font-size: 1rem;
-  color: #ffffff;
+  /* color: #ffffff; */
+  composes: text-app-text-primary from global;
   position: relative;
   padding: 0.5rem 0;
   transition: color 0.3s ease;
@@ -58,12 +62,14 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #3b82f6;
+  /* background-color: #3b82f6; */
+  composes: bg-app-accent from global;
   transition: width 0.3s ease;
 }
 
 .navLink:hover {
-  color: #3b82f6;
+  /* color: #3b82f6; */
+  composes: text-app-accent from global;
 }
 
 .navLink:hover::after {
@@ -78,12 +84,14 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: #d1d5db;
+  /* color: #d1d5db; */
+  composes: text-app-text-secondary from global;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .menuButton:hover {
-  color: #ffffff;
+  /* color: #ffffff; */
+  composes: text-app-text-primary from global;
 }
 
 .menuIcon {
@@ -92,7 +100,8 @@
 }
 
 .mobileMenu {
-  background-color: #1f2937;
+  /* background-color: #1f2937; */
+  composes: bg-app-primary from global;
   width: 100%;
   overflow: hidden;
 }
@@ -105,14 +114,16 @@
 
 .mobileNavLink {
   font-size: 1.25rem;
-  color: #ffffff;
+  /* color: #ffffff; */
+  composes: text-app-text-primary from global;
   margin-bottom: 1rem;
   text-decoration: none;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .mobileNavLink:hover {
-  color: #3b82f6;
+  /* color: #3b82f6; */
+  composes: text-app-accent from global;
   transform: translateX(10px);
 }
 
@@ -130,7 +141,8 @@
     top: 4rem;
     left: 0;
     right: 0;
-    background-color: #1f2937;
-    border-top: 1px solid #374151;
+    /* background-color: #1f2937; */ /* Handled by .mobileMenu composes */
+    /* border-top: 1px solid #374151; */
+    composes: border-t border-app-secondary from global;
   }
 }
